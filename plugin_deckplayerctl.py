@@ -2,15 +2,15 @@ import subprocess
 
 class Plugin:
     # The name of the plugin. This string will be displayed in the Plugin menu
-    name = "Player Control"
+    name = "DeckPlayerControl"
     # The name of the plugin author
     author = "ScorchLight"
 
     # If the plugin should be reloaded from a call to /plugins/reload or a file change
-    hot_reload = False
+    hot_reload = True
 
     # The HTML that will be loaded when selecting the plugin in the list
-    main_view_html = """<html><body>
+    main_view_html = """<html><head></head><body>
     	
 
 		    <div style="width:100%; text-align: center;">
@@ -53,16 +53,16 @@ class Plugin:
 		        call_plugin_method("ctlprev", {});
 		        event.stopPropagation();
 		        
-		    }
+		    };
 		     document.getElementById("playerctl_btn_play").onclick = function(event){
 		        call_plugin_method("ctlplay"), {};
 		        event.stopPropagation();
-		    }
+		    };
 		     document.getElementById("playerctl_btn_next").onclick = function(event){		   
 		        call_plugin_method("ctlnext", {});
 		          event.stopPropagation(); 
 		        
-		    }
+		    };
 		</script></body></html>"""
 
     # The HTML that will be used to display a widget in the plugin main page
@@ -113,16 +113,16 @@ class Plugin:
 		        call_plugin_method("ctlprev", {});
 		        event.stopPropagation();
 		        
-		    }
+		    };
 		     document.getElementById("playerctl_btn_play").onclick = function(event){
 		        call_plugin_method("ctlplay"), {};
 		        event.stopPropagation();
-		    }
+		    };
 		     document.getElementById("playerctl_btn_next").onclick = function(event){		   
-		        call_plugin_method("ctlnext", {});
-		          event.stopPropagation(); 
+		     	call_plugin_method("ctlnext", {});
+		        event.stopPropagation(); 
 		        
-		    }
+		    };
 		</script>
     """
 
