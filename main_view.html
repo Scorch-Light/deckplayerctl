@@ -51,7 +51,7 @@
 		    
 		};
 		document.getElementById("playerctl_btn_play").onclick = function(event){
-		    call_plugin_method("ctlplay"), {}; 
+		    call_plugin_method("ctlplay", {}); 
 		    event.stopPropagation();
 		   
 		};
@@ -63,7 +63,7 @@
 		setInterval(async function () {
 		    set_current_song(call_plugin_method("ctltrack", {}), call_plugin_method("ctlartist", {}));
 
-		    if (await call_plugin_method("ctlstate", {})) document.getElementById("playerctl_btn_play").innerHTML = PAUSE_ICON;
+		    if (call_plugin_method("ctlstate", {})) document.getElementById("playerctl_btn_play").innerHTML = PAUSE_ICON;
 		    else document.getElementById("playerctl_btn_play").innerHTML = PLAY_ICON;
     	}, 1000);
 	</script>

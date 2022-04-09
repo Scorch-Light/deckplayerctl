@@ -28,11 +28,10 @@ class Plugin:
 
 	async def ctlartist(self):
 		return subprocess.Popen("playerctl metadata --format '{{ artist }}'", stdout=subprocess.PIPE, shell=True).communicate()[0][0:-1] 
-
+		#return "avril"
 	async def ctltrack(self):
 		return subprocess.Popen("playerctl metadata --format '{{ title }}'", stdout=subprocess.PIPE, shell=True).communicate()[0][0:-1]
-
+		#return "avril"
 	async def ctlstate(self):
-		if await subprocess.Popen("playerctl status", stdout=subprocess.PIPE, shell=True).communicate()[0] == b'Playing\n':
-			p = True
-		return p
+		return subprocess.Popen("playerctl status", stdout=subprocess.PIPE, shell=True).communicate()[0] == b'Playing\n'
+
